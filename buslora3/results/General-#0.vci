@@ -1,0 +1,746 @@
+file 47085 1749219650                                           
+version 3
+run General-0-20250606-17:13:06-14682
+attr configname General
+attr datetime 20250606-17:13:06
+attr datetimef 20250606-171306
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network buslora3.simulations.LoRaNetworkTest
+attr processid 14682
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../inet4.4/images
+config network buslora3.simulations.LoRaNetworkTest
+config sim-time-limit 120s
+config simtime-resolution -11
+config repeat 1
+config rng-class cMersenneTwister
+config **.radio.mediumType "\"Ieee80211ScalarRadioMedium\""
+config **.radio.transmitter.power 100mW
+config **.radio.receiver.sensitivity -85dBm
+config **.radio.wirelessBandwidth 20MHz
+config **.radio.pathLossType "\"Ieee80211PathLoss\""
+config **.constraintAreaMinX 0m
+config **.constraintAreaMinY 0m
+config **.constraintAreaMaxX 1000m
+config **.constraintAreaMaxY 1000m
+config **.constraintAreaMinZ 0m
+config **.constraintAreaMaxZ 0m
+config **.stop.mobility.initialX 300m
+config **.stop.mobility.initialY 350m
+config **.stop.mobility.initialZ 0m
+config **.stop.app[0].typename UdpBasicApp
+config **.stop.app[0].destAddresses "\"hub\""
+config **.stop.app[0].destPort 4000
+config **.stop.app[0].localPort 5000
+config **.stop.app[0].startTime 1s
+config **.stop.app[0].sendInterval 20s
+config **.stop.app[0].packetLength 5B
+config **.bus.mobility.initialX 200m
+config **.bus.mobility.initialY 200m
+config **.bus.mobility.initialZ 0m
+config **.bus.mobility.speed 5mps
+config **.bus.mobility.initialMovementHeading 0deg
+config **.bus.mobility.initialMovementElevation 0deg
+config **.bus.mobility.updateInterval 0.5s
+config **.bus.app[0].typename UdpBasicApp
+config **.bus.app[0].destAddresses "\"hub\""
+config **.bus.app[0].destPort 4000
+config **.bus.app[0].localPort 6000
+config **.bus.app[0].startTime 2s
+config **.bus.app[0].sendInterval 6s
+config **.bus.app[0].packetLength 3B
+config **.hub.mobility.initialX 500m
+config **.hub.mobility.initialY 500m
+config **.hub.mobility.initialZ 0m
+config **.hub.app[0].typename UdpSink
+config **.hub.app[0].localPort 4000
+config **.configurator.assignDisjunctSubnetAddresses false
+config **.sigma 3.57
+config **.alohaChannelModel false
+
+vector 0 LoRaNetworkTest.stop.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 1 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 2 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 3 LoRaNetworkTest.stop.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 LoRaNetworkTest.stop.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 5 LoRaNetworkTest.stop.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 6 LoRaNetworkTest.bus.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 7 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 8 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 9 LoRaNetworkTest.bus.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 10 LoRaNetworkTest.bus.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 11 LoRaNetworkTest.bus.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 12 LoRaNetworkTest.hub.wlan[0].mac.dcf frameSequenceActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(frameSequenceStarted)-count(frameSequenceFinished))
+attr title "frame sequence active"
+vector 13 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.inProgressFrames queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(count(packetEnqueued) - count(packetDequeued))"
+attr title "queue length"
+vector 14 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.contention backoffActive:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source warmup(count(backoffStarted)-count(backoffStopped))
+attr title "backoff active"
+vector 15 LoRaNetworkTest.hub.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 16 LoRaNetworkTest.hub.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 17 LoRaNetworkTest.hub.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 18 LoRaNetworkTest.stop.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 19 LoRaNetworkTest.stop.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 20 LoRaNetworkTest.bus.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 21 LoRaNetworkTest.bus.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 22 LoRaNetworkTest.hub.wlan[0].radio radioMode:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioModeChanged
+attr title "Radio mode"
+vector 23 LoRaNetworkTest.hub.wlan[0].radio radioChannel:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source radioChannelChanged
+attr title "Radio channel"
+vector 24 LoRaNetworkTest.stop.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 25 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 26 LoRaNetworkTest.bus.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 27 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 28 LoRaNetworkTest.hub.wlan[0].radio receptionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source receptionStateChanged
+attr title "Radio reception state"
+vector 29 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.contention stateChanged:vector ETV
+attr enum IDLE,DEFER,IFS_AND_BACKOFF
+attr interpolationmode none
+attr recordingmode vector
+attr title "contention state changed"
+attr type enum
+vector 30 LoRaNetworkTest.stop.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 31 LoRaNetworkTest.bus.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 32 LoRaNetworkTest.hub.wlan[0].mac.dcf.recoveryProcedure contentionWindowChanged:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr title "contention window"
+vector 33 LoRaNetworkTest.stop.wlan[0].agent sentRequest:vector ETV
+attr recordingmode vector
+attr title "sent requests"
+vector 34 LoRaNetworkTest.bus.wlan[0].agent sentRequest:vector ETV
+attr recordingmode vector
+attr title "sent requests"
+vector 35 LoRaNetworkTest.hub.wlan[0].agent sentRequest:vector ETV
+attr recordingmode vector
+attr title "sent requests"
+vector 36 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 37 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 38 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 39 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 40 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 41 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 42 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 43 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 44 LoRaNetworkTest.stop.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 45 LoRaNetworkTest.stop.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 46 LoRaNetworkTest.stop.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 47 LoRaNetworkTest.stop.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 48 LoRaNetworkTest.stop.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, packetBytes"
+vector 49 LoRaNetworkTest.stop.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , packetBytes"
+vector 50 LoRaNetworkTest.stop.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 51 LoRaNetworkTest.stop.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+vector 52 LoRaNetworkTest.bus.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 53 LoRaNetworkTest.bus.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 54 LoRaNetworkTest.bus.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, packetBytes"
+vector 55 LoRaNetworkTest.bus.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, packetBytes"
+vector 56 LoRaNetworkTest.bus.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 57 LoRaNetworkTest.hub.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 58 LoRaNetworkTest.hub.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 59 LoRaNetworkTest.hub.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, packetBytes"
+vector 60 LoRaNetworkTest.hub.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, packetBytes"
+vector 61 LoRaNetworkTest.hub.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 62 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 63 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 64 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 65 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 66 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 67 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 68 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 69 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 70 LoRaNetworkTest.bus.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 71 LoRaNetworkTest.bus.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 72 LoRaNetworkTest.bus.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 73 LoRaNetworkTest.bus.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 74 LoRaNetworkTest.bus.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, packetBytes"
+vector 75 LoRaNetworkTest.bus.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , packetBytes"
+vector 76 LoRaNetworkTest.bus.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 77 LoRaNetworkTest.bus.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+vector 78 LoRaNetworkTest.stop.wlan[0].mac packetReceivedFromLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from lower layer, packetBytes"
+vector 79 LoRaNetworkTest.stop.wlan[0].mac.dcf packetReceivedFromPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received, packetBytes"
+vector 80 LoRaNetworkTest.stop.wlan[0].mac.dcf packetReceivedFromPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetReceivedFromPeer)
+attr title "packets received: multicast, packetBytes"
+vector 81 LoRaNetworkTest.stop.wlan[0].mac.dcf packetReceivedFromPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetReceivedFromPeer)
+attr title "packets received: broadcast, packetBytes"
+vector 82 LoRaNetworkTest.stop.wlan[0].mac.dcf packetReceivedFromPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetReceivedFromPeer)
+attr title "packets received: without retry, packetBytes"
+vector 83 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.pendingQueue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 84 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.pendingQueue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 85 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.pendingQueue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 86 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.pendingQueue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 87 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.contention backoffPeriodGenerated:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "backoff periods"
+vector 88 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.pendingQueue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 89 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 90 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.pendingQueue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 91 LoRaNetworkTest.hub.wlan[0].mac.dcf datarateSelected:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr title "datarates selected"
+vector 92 LoRaNetworkTest.hub.wlan[0].mac packetSentToLower:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent to lower layer, packetBytes"
+vector 93 LoRaNetworkTest.hub.wlan[0].radio transmissionState:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source transmissionStateChanged
+attr title "Radio transmission state"
+vector 94 LoRaNetworkTest.hub.wlan[0].mac.dcf packetSentToPeer:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets sent, packetBytes"
+vector 95 LoRaNetworkTest.hub.wlan[0].mac.dcf packetSentToPeerMulticast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Multicast(packetSentToPeer)
+attr title "packets sent: multicast, packetBytes"
+vector 96 LoRaNetworkTest.hub.wlan[0].mac.dcf packetSentToPeerBroadcast:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211Broadcast(packetSentToPeer)
+attr title "packets sent: broadcast , packetBytes"
+vector 97 LoRaNetworkTest.hub.wlan[0].mac.dcf packetSentToPeerWithoutRetry:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source ieee80211NotRetry(packetSentToPeer)
+attr title "packets sent: without retry, packetBytes"
+vector 98 LoRaNetworkTest.hub.wlan[0].mac.dcf.channelAccess.inProgressFrames queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetDequeued)
+attr title "queueing times"
+vector 99 LoRaNetworkTest.stop.wlan[0].agent dropConfirm:vector ETV
+attr recordingmode vector
+attr title "dropped confirms"
+vector 100 LoRaNetworkTest.bus.wlan[0].agent dropConfirm:vector ETV
+attr recordingmode vector
+attr title "dropped confirms"
+vector 101 LoRaNetworkTest.hub.wlan[0].agent dropConfirm:vector ETV
+attr recordingmode vector
+attr title "dropped confirms"
+vector 102 LoRaNetworkTest.stop.app[0] packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 103 LoRaNetworkTest.stop.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 104 LoRaNetworkTest.stop.ipv4.arp arpRequestSent:vector(packetBytes) ETV
+attr recordingmode vector(packetBytes)
+attr source arpRequestSent
+attr title "ARP request sent, packetBytes"
+vector 105 LoRaNetworkTest.stop.wlan[0].mac packetReceivedFromUpper:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr title "packets received from upper layer, packetBytes"
+vector 106 LoRaNetworkTest.stop.wlan[0].mac packetDrop:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropped
+attr title "packet drops, packetBytes"
+vector 107 LoRaNetworkTest.stop.wlan[0].mac packetDropOther:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetDropReasonIsOther(packetDropped)
+attr title "packet drops: other, packetBytes"
+0	27638 188 0 237 0 1.46468205069 10 0 1 4 4
+1	27826 188 0 237 0 1.46468205069 10 0 1 4 4
+2	28014 188 0 231 0 1.46464405069 10 0 1 4 4
+3	28202 8 0 0 0 0 1 0 0 0 0
+4	28210 8 0 0 0 0 1 0 0 0 0
+5	28218 8 0 0 0 0 1 0 0 0 0
+6	28226 190 0 254 0 1.47789138492 10 0 1 4 4
+7	28416 190 0 254 0 1.47789138492 10 0 1 4 4
+8	28606 190 0 248 0 1.47785338492 10 0 1 4 4
+9	28796 8 0 0 0 0 1 0 0 0 0
+10	28804 9 0 0 0 0 1 0 0 0 0
+11	28813 9 0 0 0 0 1 0 0 0 0
+12	28822 177 0 266 0 1.51455680949 9 0 1 4 4
+13	28999 177 0 266 0 1.51455680949 9 0 1 4 4
+14	29176 200 0 265 0 1.51455680949 10 0 1 4 4
+15	29376 9 0 0 0 0 1 0 0 0 0
+16	29385 9 0 0 0 0 1 0 0 0 0
+17	29394 9 0 0 0 0 1 0 0 0 0
+18	29403 207 0 238 0 1.46468205069 11 0 3 22 56
+19	29610 98 0 218 0 1.36464405069 5 0 0 0 0
+20	29708 209 0 255 0 1.47789138492 11 0 3 22 56
+21	29917 99 0 223 0 1.37785338492 5 0 0 0 0
+22	30016 186 0 267 0 1.51455680949 10 0 3 20 52
+23	30202 99 0 228 0 1.41455680949 5 0 0 0 0
+24	30301 523 0 269 0 1.5145576434 24 0 3 36 84
+25	30824 1406 0 269 0 1.5145576434 64 0 2 16 32
+26	32230 530 0 270 0 1.51455822468 24 0 3 36 84
+27	32760 1424 0 270 0 1.51455822468 64 0 2 16 32
+28	34184 522 0 267 0 1.51455680949 24 0 3 36 84
+29	34706 1408 0 267 0 1.51455680949 64 0 2 16 32
+30	36114 10 0 0 0 0 1 31 31 31 961
+31	36124 10 0 0 0 0 1 31 31 31 961
+32	36134 10 0 0 0 0 1 31 31 31 961
+33	36144 89 4 215 0.16464405069 1.36464405069 4 1 1 4 4
+34	36233 89 8 220 0.17785338492 1.37785338492 4 1 1 4 4
+35	36322 90 12 225 0.21455680949 1.41455680949 4 1 1 4 4
+36	36412 98 17 230 0.26464405069 1.46464405069 4 256 256 1024 262144
+37	36510 183 17 230 0.1 1.4 14 0 2560 7680 19660800
+38	36693 180 17 232 0.26464405069 1.46464405069 8 0 1 4 4
+39	36873 188 17 232 0.26464405069 1.46464405069 8 0 256 1024 262144
+40	37061 92 17 230 0.26464405069 1.46464405069 4 0 23 47 979
+41	37153 90 19 232 0.26464405069 1.46464405069 4 0 0 0 0
+42	37243 98 19 232 0.26464405069 1.46464405069 4 256 256 1024 262144
+43	37341 183 19 232 0.1 1.4 14 0 2560 7680 19660800
+44	37524 118 19 232 0.26464405069 1.46464405069 4 24000000 24000000 96000000 2.304e+15
+45	37642 94 19 232 0.26464405069 1.46464405069 4 32 32 128 4096
+46	37736 360 20 238 0.26464405069 1.46468205069 16 0 2 16 24
+47	38096 94 24 237 0.26468205069 1.46468205069 4 32 32 128 4096
+48	38190 94 24 237 0.26468205069 1.46468205069 4 32 32 128 4096
+49	38284 94 24 237 0.26468205069 1.46468205069 4 32 32 128 4096
+50	38378 94 24 237 0.26468205069 1.46468205069 4 32 32 128 4096
+51	38472 114 24 237 0.26468205069 1.46468205069 4 3.8e-05 3.8e-05 0.000152 5.776e-09
+52	38586 165 27 240 0.26468265203 1.46468265203 7 32 32 224 7168
+53	38751 165 27 240 0.26468265203 1.46468265203 7 32 32 224 7168
+54	38916 165 27 240 0.26468265203 1.46468265203 7 32 32 224 7168
+55	39081 165 27 240 0.26468265203 1.46468265203 7 32 32 224 7168
+56	39246 165 27 240 0.26468265203 1.46468265203 7 32 32 224 7168
+57	39411 185 30 260 0.2646828846 1.47789280011 8 32 32 256 8192
+58	39596 185 30 260 0.2646828846 1.47789280011 8 32 32 256 8192
+59	39781 185 30 260 0.2646828846 1.47789280011 8 32 32 256 8192
+60	39966 185 30 260 0.2646828846 1.47789280011 8 32 32 256 8192
+61	40151 185 30 260 0.2646828846 1.47789280011 8 32 32 256 8192
+62	40336 99 34 247 0.27785338492 1.47785338492 4 256 256 1024 262144
+63	40435 187 34 247 0.1 1.4 14 0 2560 7680 19660800
+64	40622 182 34 249 0.27785338492 1.47785338492 8 0 1 4 4
+65	40804 190 34 249 0.27785338492 1.47785338492 8 0 256 1024 262144
+66	40994 92 34 247 0.27785338492 1.47785338492 4 3 18 34 418
+67	41086 91 36 249 0.27785338492 1.47785338492 4 0 0 0 0
+68	41177 99 36 249 0.27785338492 1.47785338492 4 256 256 1024 262144
+69	41276 187 36 249 0.1 1.4 14 0 2560 7680 19660800
+70	41463 119 36 249 0.27785338492 1.47785338492 4 24000000 24000000 96000000 2.304e+15
+71	41582 95 36 249 0.27785338492 1.47785338492 4 32 32 128 4096
+72	41677 364 37 255 0.27785338492 1.47789138492 16 0 2 16 24
+73	42041 95 41 254 0.27789138492 1.47789138492 4 32 32 128 4096
+74	42136 95 41 254 0.27789138492 1.47789138492 4 32 32 128 4096
+75	42231 95 41 254 0.27789138492 1.47789138492 4 32 32 128 4096
+76	42326 95 41 254 0.27789138492 1.47789138492 4 32 32 128 4096
+77	42421 115 41 254 0.27789138492 1.47789138492 4 3.8e-05 3.8e-05 0.000152 5.776e-09
+78	42536 163 44 257 0.27789198626 1.47789198626 7 32 32 224 7168
+79	42699 163 44 257 0.27789198626 1.47789198626 7 32 32 224 7168
+80	42862 163 44 257 0.27789198626 1.47789198626 7 32 32 224 7168
+81	43025 163 44 257 0.27789198626 1.47789198626 7 32 32 224 7168
+82	43188 163 44 257 0.27789198626 1.47789198626 7 32 32 224 7168
+83	43351 99 51 264 0.31455680949 1.51455680949 4 256 256 1024 262144
+84	43450 199 51 264 0.1 1.5 15 0 2560 7680 19660800
+85	43649 182 51 266 0.31455680949 1.51455680949 8 0 1 4 4
+86	43831 190 51 266 0.31455680949 1.51455680949 8 0 256 1024 262144
+87	44021 93 51 264 0.31455680949 1.51455680949 4 4 27 64 1402
+88	44114 91 53 266 0.31455680949 1.51455680949 4 0 0 0 0
+89	44205 99 53 266 0.31455680949 1.51455680949 4 256 256 1024 262144
+90	44304 199 53 266 0.1 1.5 15 0 2560 7680 19660800
+91	44503 119 53 266 0.31455680949 1.51455680949 4 24000000 24000000 96000000 2.304e+15
+92	44622 95 53 266 0.31455680949 1.51455680949 4 32 32 128 4096
+93	44717 318 54 268 0.31455680949 1.51455680949 14 0 2 15 23
+94	45035 71 58 202 0.31459480949 1.11459480949 3 32 32 96 3072
+95	45106 71 58 202 0.31459480949 1.11459480949 3 32 32 96 3072
+96	45177 71 58 202 0.31459480949 1.11459480949 3 32 32 96 3072
+97	45248 71 58 202 0.31459480949 1.11459480949 3 32 32 96 3072
+98	45319 86 58 202 0.31459480949 1.11459480949 3 3.8e-05 3.8e-05 0.000114 4.332e-09
+99	45405 68 71 215 0.56464405069 1.36464405069 3 1 1 3 3
+100	45473 71 76 220 0.57785338492 1.37785338492 3 1 1 3 3
+101	45544 71 81 225 0.61455680949 1.41455680949 3 1 1 3 3
+102	45615 12 149 149 1 1 1 5 5 5 25
+103	45627 13 151 151 1 1 1 13 13 13 169
+104	45640 13 152 152 1 1 1 28 28 28 784
+105	45653 13 154 154 1 1 1 36 36 36 1296
+106	45666 13 154 154 1 1 1 36 36 36 1296
+107	45679 13 154 154 1 1 1 36 36 36 1296
+vector 108 LoRaNetworkTest.stop.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+vector 109 LoRaNetworkTest.bus.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+vector 110 LoRaNetworkTest.hub.app[0] throughput:vector ETV
+attr recordingmode vector
+attr source throughput(packetReceived)
+attr title throughput
+attr unit bps
+37	46176 37 270 270 1.5 1.514591023 2 0 2560 2560 6553600
+43	46213 37 270 270 1.5 1.514591023 2 0 2560 2560 6553600
+63	46250 37 270 270 1.5 1.514591023 2 0 2560 2560 6553600
+69	46287 37 270 270 1.5 1.514591023 2 0 2560 2560 6553600
+84	46324 35 270 270 1.514591023 1.514591023 1 17545.034368049 17545.034368049 17545.034368049 307828230.97604
+90	46359 35 270 270 1.514591023 1.514591023 1 17545.034368049 17545.034368049 17545.034368049 307828230.97604
+108	46394 230 270 270 0.1 1.514591023 16 0 0 0 0
+109	46624 230 270 270 0.1 1.514591023 16 0 0 0 0
+110	46854 230 270 270 0.1 1.514591023 16 0 0 0 0
+

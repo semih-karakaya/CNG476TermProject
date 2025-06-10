@@ -1,0 +1,100 @@
+version 3
+run General-0-20250605-20:31:10-147328
+attr configname General
+attr datetime 20250605-20:31:10
+attr datetimef 20250605-203110
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network flora.simulations.LoRaNetworkTest
+attr processid 147328
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config debug-on-errors true
+config image-path ../inet4.4/images
+config network flora.simulations.LoRaNetworkTest
+config sim-time-limit 10s
+config simtime-resolution -11
+config **.numberOfNodes 2
+config **.numberOfGateways 1
+config output-scalar-file results/test.sca
+config output-vector-file results/test.vec
+config **.loRaGW[0].numUdpApps 1
+config **.loRaGW[0].packetForwarder.localPort 2000
+config **.loRaGW[0].packetForwarder.destPort 1000
+config **.loRaGW[0].packetForwarder.destAddresses "\"networkServer\""
+config **.loRaGW[0].packetForwarder.indexNumber 0
+config **.loRaGW[0].initialX 150m
+config **.loRaGW[0].initialY 150m
+config **.networkServer.numApps 1
+config **.networkServer.app[0].typename NetworkServerApp
+config **.networkServer.app[0].destAddresses "\"loRaGW[0]\""
+config **.networkServer.app[0].destPort 2000
+config **.networkServer.app[0].localPort 1000
+config **.networkServer.app[0].evaluateADRinServer true
+config **.networkServer.app[0].adrMethod "\"avg\""
+config **.loRaNodes[0].radio.frequency 868e6
+config **.loRaNodes[0].radio.bandwidth 125e3
+config **.loRaNodes[0].radio.spreadingFactor 7
+config **.loRaNodes[0].radio.cr 4
+config **.loRaNodes[0].radio.txPower 14
+config **.loRaNodes[0].mobility.typename StationaryMobility
+config **.loRaNodes[0].initialX 100m
+config **.loRaNodes[0].initialY 200m
+config **.loRaNodes[1].radio.frequency 868e6
+config **.loRaNodes[1].radio.bandwidth 125e3
+config **.loRaNodes[1].radio.spreadingFactor 7
+config **.loRaNodes[1].radio.cr 4
+config **.loRaNodes[1].radio.txPower 14
+config **.loRaNodes[1].mobility.typename LinearMobility
+config **.loRaNodes[1].mobility.initialX 100m
+config **.loRaNodes[1].mobility.initialY 250m
+config **.loRaNodes[1].mobility.speed 20mps
+config **.loRaNodes[1].mobility.angle 0deg
+config **.loRaNodes[1].mobility.bounce true
+config **.loRaNodes[1].mobility.constraintAreaMinX 100m
+config **.loRaNodes[1].mobility.constraintAreaMaxX 500m
+config **.loRaNodes[1].mobility.constraintAreaMinY 250m
+config **.loRaNodes[1].mobility.constraintAreaMaxY 250m
+config **.loRaNodes[*].numApps 1
+config **.loRaNodes[0].app[0].typename StopApp
+config **.loRaNodes[0].app[0].meanInterarrival 1s
+config **.loRaNodes[0].app[0].busLoadingRate 5
+config **.loRaNodes[1].app[0].typename BusApp
+config **.loRaNodes[1].app[0].sendInterval 2s
+config **.loRaNodes[1].app[0].dwellTime 1s
+config **.loRaNodes[1].app[0].busCapacity 10
+config **.radio.radioMediumModule "\"LoRaMedium\""
+config **.LoRaMedium.pathLossType "\"LoRaLogNormalShadowing\""
+config **.minInterferenceTime 0s
+config **.displayAddresses false
+config **.loRaGW[0].displayString "\"i=device/router;is=oval;r=20\""
+config **.loRaNodes[*].displayString "\"i=device/laptop;is=square;r=15\""
+
+vector 0 LoRaNetworkTest.loRaGW[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 1 LoRaNetworkTest.loRaGW[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 2 LoRaNetworkTest.loRaGW[0].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 3 LoRaNetworkTest.networkServer.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 4 LoRaNetworkTest.networkServer.ud

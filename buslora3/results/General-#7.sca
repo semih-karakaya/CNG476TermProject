@@ -1,0 +1,37 @@
+version 3
+run General-7-20250610-12:24:46-6281
+attr configname General
+attr datetime 20250610-12:24:46
+attr datetimef 20250610-122446
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network buslora3.simulations.BusNetwork
+attr processid 6281
+attr repetition 7
+attr replication #7
+attr resultdir results
+attr runnumber 7
+attr seedset 7
+config image-path ../inet4.4/images
+config network buslora3.simulations.BusNetwork
+config sim-time-limit 60s
+config simtime-resolution 1us
+config repeat 10
+
+par BusNetwork.stop0 typename "\"buslora3.simulations.StopSimple\""
+scalar BusNetwork.stop0 finalQueueSize 17
+par BusNetwork.stop1 typename "\"buslora3.simulations.StopSimple\""
+scalar BusNetwork.stop1 finalQueueSize 0
+par BusNetwork.stop2 typename "\"buslora3.simulations.StopSimple\""
+scalar BusNetwork.stop2 finalQueueSize 6
+par BusNetwork.bus typename "\"buslora3.simulations.BusSimple\""
+scalar BusNetwork.bus finalLoad 13
+scalar BusNetwork.bus visitCount0 11
+scalar BusNetwork.bus visitCount1 10
+scalar BusNetwork.bus visitCount2 9
+par BusNetwork typename "\"buslora3.simulations.BusNetwork\""
+

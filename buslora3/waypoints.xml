@@ -1,0 +1,13 @@
+
+<waypoints>
+    <!-- Başlangıç noktası: (200, 200, 0) hız 5 m/s -->
+    <waypoint x="200" y="200" z="0" speed="5"/>
+    <!-- İkinci nokta: (800, 200, 0) hız 5 m/s -->
+    <waypoint x="800" y="200" z="0" speed="5"/>
+    <!-- Üçüncü nokta: (800, 600, 0) hız 5 m/s -->
+    <waypoint x="800" y="600" z="0" speed="5"/>
+    <!-- Dördüncü nokta: (200, 600, 0) hız 5 m/s -->
+    <waypoint x="200" y="600" z="0" speed="5"/>
+    <!-- Döngüyü tamamlamak için tekrar (200,200,0) -->
+    <waypoint x="200" y="200" z="0" speed="5"/>
+</waypoints>

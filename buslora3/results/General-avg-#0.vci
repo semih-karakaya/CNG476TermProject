@@ -1,0 +1,100 @@
+                                                                
+version 3
+run General-0-20250606-14:57:11-106357
+attr configname General
+attr datetime 20250606-14:57:11
+attr datetimef 20250606-145711
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars "$0=\"avg\""
+attr iterationvarsd avg
+attr iterationvarsf avg-
+attr measurement "$0=\"avg\""
+attr network buslora3.simulations.LoRaNetworkTest
+attr processid 106357
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../inet4.4/images
+config network buslora3.simulations.LoRaNetworkTest
+config sim-time-limit 100s
+config simtime-resolution -11
+config repeat 1
+config rng-class cMersenneTwister
+config **.maxTransmissionDuration 4s
+config **.energyDetection -110dBm
+config **.radio.radioMediumModule "\"LoRaMedium\""
+config **.LoRaMedium.pathLossType "\"LoRaLogNormalShadowing\""
+config **.LoRaMedium.mediumLimitCacheType "\"LoRaMediumCache\""
+config **.LoRaMedium.rangeFilter "\"communicationRange\""
+config **.LoRaMedium.neighborCacheType "\"LoRaNeighborCache\""
+config **.LoRaMedium.neighborCache.range 500m
+config **.LoRaMedium.neighborCache.refillPeriod 3000s
+config **.minInterferenceTime 0s
+config **.constraintAreaMinX 0m
+config **.constraintAreaMinY 0m
+config **.constraintAreaMaxX 1000m
+config **.constraintAreaMaxY 1000m
+config **.constraintAreaMinZ 0m
+config **.constraintAreaMaxZ 0m
+config **.stop.mobility.initialX 300m
+config **.stop.mobility.initialY 350m
+config **.stop.mobility.initialZ 0m
+config **.stop.numApps 1
+config **.stop.app[0].typename SimpleLoRaApp
+config **.stop.app[0].destAddresses "\"bus\""
+config **.stop.app[0].startTime 1s
+config **.stop.app[0].sendInterval 20s
+config **.stop.app[0].packetLengthBytes 5B
+config **.bus.mobility.initialX 200m
+config **.bus.mobility.initialY 200m
+config **.bus.mobility.initialZ 0m
+config **.bus.mobility.speed 5mps
+config **.bus.mobility.initialMovementHeading 0deg
+config **.bus.mobility.initialMovementElevation 0deg
+config **.bus.mobility.updateInterval 0.5s
+config **.bus.numApps 1
+config **.bus.app[0].typename SimpleLoRaApp
+config **.bus.app[0].destAddresses "\"stop\""
+config **.bus.app[0].startTime 2s
+config **.bus.app[0].sendInterval 6s
+config **.bus.app[0].packetLengthBytes 3B
+config **.loRaGW[*].**.initialX 500m
+config **.loRaGW[*].**.initialY 500m
+config **.LoRaGWNic.radio.iAmGateway true
+config **.loRaGW[*].**.initFromDisplayString false
+config **.loRaGW[*].numUdpApps 1
+config **.loRaGW[0].packetForwarder.localPort 2000
+config **.loRaGW[0].packetForwarder.destPort 1000
+config **.loRaGW[0].packetForwarder.destAddresses "\"networkServer\""
+config **.loRaGW[0].packetForwarder.indexNumber 0
+config **.networkServer.numApps 1
+config **.networkServer.app[0].typename NetworkServerApp
+config **.networkServer.app[0].destAddresses "\"loRaGW[0]\""
+config **.networkServer.app[0].destPort 2000
+config **.networkServer.app[0].localPort 1000
+config **.networkServer.app[0].adrMethod "\"avg\""
+config **.bus.LoRaNic.radio.energyConsumer.typename LoRaEnergyConsumer
+config **.bus.**.energySourceModule "\"^.IdealEpEnergyStorage\""
+config **.bus.LoRaNic.radio.energyConsumer.configFile "xmldoc(\"energyConsumptionParameters.xml\")"
+config **.stop.LoRaNic.radio.energyConsumer.typename LoRaEnergyConsumer
+config **.stop.**.energySourceModule "\"^.IdealEpEnergyStorage\""
+config **.stop.LoRaNic.radio.energyConsumer.configFile "xmldoc(\"energyConsumptionParameters.xml\")"
+config **.sigma 3.57
+config **.alohaChannelModel false
+
+vector 0 LoRaNetworkTest.loRaGW[0].udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 1 LoRaNetworkTest.loRaGW[0].udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 2 LoRaNetworkTest.loRaGW[0].udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode v

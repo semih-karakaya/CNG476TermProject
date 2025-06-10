@@ -1,0 +1,81 @@
+
+--> Run 0:
+    Final load on bus: 16
+      visitCount[0] = 11
+      visitCount[1] = 9
+      visitCount[2] = 10
+--> Run 0:
+    Final load on bus: 16
+      visitCount[0] = 11
+      visitCount[1] = 9
+      visitCount[2] = 10
+--> Run 1:
+    Final load on bus: 14
+      visitCount[0] = 12
+      visitCount[1] = 9
+      visitCount[2] = 9
+--> Run 2:
+    Final load on bus: 9
+      visitCount[0] = 11
+      visitCount[1] = 10
+      visitCount[2] = 9
+--> Run 3:
+    Final load on bus: 20
+      visitCount[0] = 11
+      visitCount[1] = 9
+      visitCount[2] = 10
+--> Run 0:
+    Final load on bus: 16
+      visitCount[0] = 11
+      visitCount[1] = 9
+      visitCount[2] = 10
+--> Run 1:
+    Final load on bus: 14
+      visitCount[0] = 12
+      visitCount[1] = 9
+      visitCount[2] = 9
+--> Run 2:
+    Final load on bus: 9
+      visitCount[0] = 11
+      visitCount[1] = 10
+      visitCount[2] = 9
+--> Run 3:
+    Final load on bus: 20
+      visitCount[0] = 11
+      visitCount[1] = 9
+      visitCount[2] = 10
+--> Run 4:
+    Final load on bus: 18
+      visitCount[0] = 11
+      visitCount[1] = 9
+      visitCount[2] = 10
+--> Run 5:
+    Final load on bus: 12
+      visitCount[0] = 11
+      visitCount[1] = 10
+      visitCount[2] = 9
+--> Run 6:
+    Final load on bus: 13
+      visitCount[0] = 12
+      visitCount[1] = 8
+      visitCount[2] = 10
+--> Run 7:
+    Final load on bus: 13
+      visitCount[0] = 11
+      visitCount[1] = 10
+      visitCount[2] = 9
+--> Run 8:
+    Final load on bus: 21
+      visitCount[0] = 11
+      visitCount[1] = 9
+      visitCount[2] = 10
+--> Run 9:
+    Final load on bus: 14
+      visitCount[0] = 10
+      visitCount[1] = 10
+      visitCount[2] = 10
+--> Run 0:
+    Final load on bus: 16
+      visitCount[0] = 11
+      visitCount[1] = 9
+      visitCount[2] = 10

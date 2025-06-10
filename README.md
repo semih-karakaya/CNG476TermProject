@@ -1,34 +1,39 @@
 # CNG476TermProject
 
-# Smart Bus Terminal LoRaWAN Simulation with OMNeT++ and FLoRa
+## Smart Bus Terminal Network Simulation with OMNeT++
 
-This project simulates a smart bus and bus terminal network using the LoRa wireless communication protocol. The simulation is implemented with [OMNeT++](https://omnetpp.org/) and the [FLoRa](https://flora.aalto.fi/) simulation framework, which lets us model long-range, low-power LoRa communications realistically.
+This project simulates a smart bus and bus terminal network using the [OMNeT++](https://omnetpp.org/) network simulation framework. The system models communication between bus stops and a central logic to support smart transportation planning.
 
-## Project Overview
+### Project Overview
 
-In this simulation, infrared sensors are used at bus terminals to count the number of passengers waiting, and on buses to detect passenger entry and exit. These sensors communicate data over LoRaWAN to a central monitoring hub. The central hub receives and processes:
-- The number of waiting passengers at stops
-- Bus occupancy and availability
+- **Bus stops** periodically generate passengers using a Poisson distribution to reflect real-world arrival behavior.
+- Each stop uses **self-messages** to schedule future passenger arrivals.
+- A **central controller (or bus logic)** monitors the stops and dispatches a bus to the one with the most passengers.
+- When a bus arrives at a stop, it **clears (serves) all waiting passengers** at once.
+- No actual tracking of boarding events was implemented due to complexity and time constraints.
 
-The system aims to optimize public transportation by providing real-time updates and improving passenger flow management.
+This setup simulates real-time optimization where bus resources are dynamically assigned based on demand.
 
-## Objectives
+### Objectives
 
-- Analyze network latency and energy efficiency as sensors send data about passengers and buses over LoRaWAN.
-- Measure the reliability and accuracy of LoRa-based communication for critical transit information.
-- Study the effects of different passenger arrival rates and bus dispatching strategies.
-- Evaluate LoRa's performance for smart transport compared to traditional Wi-Fi-based IoT systems.
+- Analyze communication delay and system responsiveness to passenger accumulation.
+- Model realistic passenger arrival behavior using probabilistic methods.
+- Test dynamic bus dispatching logic under varying traffic conditions.
 
-## Simulation Approach
+### Simulation Approach
 
-- **Random (stochastic) models** are used: Passenger arrivals are modeled as random events using probability distributions (like Poisson and exponential distributions), reflecting real-world situations.
-- The simulation uses **stochastic processes** to track how the network state (e.g. queue size, bus occupancy) changes over time.
-- **Monte Carlo simulation**: The simulation is repeated many times with different random inputs, allowing us to obtain reliable averages for network latency, energy usage, and communication reliability.
+- **Stochastic modeling**: Passenger arrivals at each stop follow a Poisson distribution.
+- **Discrete-event simulation**: OMNeT++ handles scheduled self-messages and interactions between buses and stops.
+- **Centralized dispatch**: The simulation identifies the stop with the most passengers and routes the next bus there.
 
-## Requirements
+### Requirements
 
 - [OMNeT++ 6.0](https://omnetpp.org/download/)
-- [FLoRa framework](https://flora.aalto.fi/) (Add-on for OMNeT++)
 - C++ compiler compatible with OMNeT++
-  
 
+### Running the Simulation
+
+To run the simulation:
+
+1. Open the project in OMNeT++.
+2. Run the simulation using the `omnetpp.ini` file, which contains all scenario configurations.
